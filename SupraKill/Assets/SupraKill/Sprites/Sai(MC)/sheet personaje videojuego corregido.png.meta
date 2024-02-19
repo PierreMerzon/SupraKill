@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4021d73778538ad4e9e2bd8fd130f8e8
+guid: 1f97847e87c183340aeedde72cb0d07e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,37 +106,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sheet personaje videojuego_0
+      name: sheet personaje videojuego corregido_0
       rect:
         serializedVersion: 2
         x: 0
@@ -150,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72801f09b62cf6f4bbab61d25bd9778c
-      internalID: 1991175258
+      spriteID: fb59ca4385c4e8c459e86129986ab873
+      internalID: 1709822907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_1
+      name: sheet personaje videojuego corregido_1
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a106865aabe2b9147841e9d2768a5583
-      internalID: 1358753764
+      spriteID: a1c41126cb6f7414d8db5a73a5d52020
+      internalID: 135095045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_2
+      name: sheet personaje videojuego corregido_2
       rect:
         serializedVersion: 2
         x: 128
@@ -192,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2e29be5f75e5c94e8813c5a16f3774c
-      internalID: -1324932965
+      spriteID: ab088b9368fe92d4fbe21031f0a80bae
+      internalID: 932184208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_3
+      name: sheet personaje videojuego corregido_3
       rect:
         serializedVersion: 2
         x: 192
@@ -213,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13d441178bb48c14ca8fa2d091dad921
-      internalID: 389961552
+      spriteID: d1defddab4cfa9c43a08eb822038dff9
+      internalID: 1661024279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_4
+      name: sheet personaje videojuego corregido_4
       rect:
         serializedVersion: 2
         x: 256
@@ -234,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 443629ed0c528354d83425bd46d7f5f5
-      internalID: -844838799
+      spriteID: c77d1fbb8e982c748a56683158725f72
+      internalID: 1680447561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_5
+      name: sheet personaje videojuego corregido_5
       rect:
         serializedVersion: 2
         x: 0
@@ -255,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c8ad99d9da5b3f640b550fffe7609d66
-      internalID: -1209999209
+      spriteID: 32b1d07fce7e7a544831ad8d0a694b18
+      internalID: -620306545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_6
+      name: sheet personaje videojuego corregido_6
       rect:
         serializedVersion: 2
         x: 64
@@ -276,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 825356b0ea90cf649917829ad41a135b
-      internalID: -1679498170
+      spriteID: a32366a64dbb0a144ab631e052ed92ca
+      internalID: -1730336281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_7
+      name: sheet personaje videojuego corregido_7
       rect:
         serializedVersion: 2
         x: 128
@@ -297,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fcd6f46baedf0ec4aaee8a172346e74f
-      internalID: 676854081
+      spriteID: b7bec86c6c33f37499d2933155e64c4f
+      internalID: -332417191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_8
+      name: sheet personaje videojuego corregido_8
       rect:
         serializedVersion: 2
         x: 192
@@ -318,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7b29acd5867c4064faa1fccc08c13af7
-      internalID: 1781948872
+      spriteID: b70dc2c45efa7cb468d2f9e1d4f75071
+      internalID: 1352699721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_9
+      name: sheet personaje videojuego corregido_9
       rect:
         serializedVersion: 2
         x: 256
@@ -339,14 +313,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f17e6f12d09cca04f898980ab3fa231f
-      internalID: -1001630258
+      spriteID: 0dd1f72d60daf44408679a0442c9933a
+      internalID: 1013695138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_10
+      name: sheet personaje videojuego corregido_10
       rect:
         serializedVersion: 2
         x: 0
@@ -360,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d235df2211629842beee244679a2b1d
-      internalID: 580806621
+      spriteID: a5aabd567691a664d9b05b3e8a0682b6
+      internalID: -243414060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_11
+      name: sheet personaje videojuego corregido_11
       rect:
         serializedVersion: 2
         x: 64
@@ -381,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12845959be090864fa43fe6a61e1d4db
-      internalID: 1386228155
+      spriteID: 9fdbdf8cb66cc864ebdcebece0386f3c
+      internalID: -793560922
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_12
+      name: sheet personaje videojuego corregido_12
       rect:
         serializedVersion: 2
         x: 128
@@ -402,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec0074678b7a7274d85d0f53d925e9cc
-      internalID: -636785246
+      spriteID: 9f5d7e2ccf3cd134d99231dd27a8366f
+      internalID: -116158390
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_13
+      name: sheet personaje videojuego corregido_13
       rect:
         serializedVersion: 2
         x: 192
@@ -423,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88d4b067ac09cde42b1c8f20a6f4a76b
-      internalID: -17757950
+      spriteID: 91c9cfff7de12354d994e66375c37f87
+      internalID: 775791324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_14
+      name: sheet personaje videojuego corregido_14
       rect:
         serializedVersion: 2
         x: 0
@@ -444,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7bbb758e83743e459a08f04a2ba19cb
-      internalID: -1827480734
+      spriteID: 759f5d880e795c2438158ac0190923f6
+      internalID: -1851841139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_15
+      name: sheet personaje videojuego corregido_15
       rect:
         serializedVersion: 2
         x: 64
@@ -465,14 +439,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33bedae9360b6e449b86214421e3e12f
-      internalID: -825547989
+      spriteID: 1aea3d33bd49b6441b33443617352831
+      internalID: 383941618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_16
+      name: sheet personaje videojuego corregido_16
       rect:
         serializedVersion: 2
         x: 128
@@ -486,14 +460,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d6abffa58103a84e8deb35e9fe4148b
-      internalID: -141132741
+      spriteID: 8b93e3a5cd43fbe4d8850885c9aaf3b0
+      internalID: -1465833223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_17
+      name: sheet personaje videojuego corregido_17
       rect:
         serializedVersion: 2
         x: 192
@@ -507,14 +481,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72e27c747e092404e9755cb203173a61
-      internalID: 1004482042
+      spriteID: d925f2f9e86c0884093dbd49e0daebce
+      internalID: -483953583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_18
+      name: sheet personaje videojuego corregido_18
       rect:
         serializedVersion: 2
         x: 256
@@ -528,14 +502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80725e2f93e4fdc4d8702ebf3db4adbf
-      internalID: -585629181
+      spriteID: 40be83d3b9dcc594e93752c856e5c14c
+      internalID: 946590268
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_19
+      name: sheet personaje videojuego corregido_19
       rect:
         serializedVersion: 2
         x: 320
@@ -549,14 +523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 079610a5446ed294fac67629ea6ef033
-      internalID: 1873171041
+      spriteID: bf95a2b49998c2847bea3506e6a96b51
+      internalID: -1855912725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_20
+      name: sheet personaje videojuego corregido_20
       rect:
         serializedVersion: 2
         x: 384
@@ -570,14 +544,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e060aeaca00301643962850dc7efe8cc
-      internalID: 1957692015
+      spriteID: 1fa62746930f5c448bb734cab22b3745
+      internalID: 507161783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_21
+      name: sheet personaje videojuego corregido_21
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 817f07cdbd18fd442ad7e87b21949609
+      internalID: -510961933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet personaje videojuego corregido_22
       rect:
         serializedVersion: 2
         x: 0
@@ -591,14 +586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e881c99ef44ac9945b20c7fbadccaf2e
-      internalID: 2055201034
+      spriteID: 05658ffdb62b71842a0186e2c681135b
+      internalID: 718230165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_22
+      name: sheet personaje videojuego corregido_23
       rect:
         serializedVersion: 2
         x: 64
@@ -612,14 +607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 328aa7d42321a9f4199ec47c411da19f
-      internalID: -1519992204
+      spriteID: 658c928a38667cb48b916f26bdd1f580
+      internalID: -1209266090
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_23
+      name: sheet personaje videojuego corregido_24
       rect:
         serializedVersion: 2
         x: 128
@@ -633,14 +628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7620b90f11f64504698cda98dbc03296
-      internalID: -429779687
+      spriteID: e66624c44b8c26a45acf4dd5eec27bc2
+      internalID: 1585767677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_24
+      name: sheet personaje videojuego corregido_25
       rect:
         serializedVersion: 2
         x: 192
@@ -654,14 +649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a428e87d3232db4fa01562ef1171cce
-      internalID: 123698171
+      spriteID: 1da19a3af35f18349a6aa2082991c443
+      internalID: -1634267163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_25
+      name: sheet personaje videojuego corregido_26
       rect:
         serializedVersion: 2
         x: 256
@@ -675,14 +670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7fc3bc21a921294cad6095659bdaa2f
-      internalID: -113408630
+      spriteID: 0f9eba637fe1ec94eb98d1b24f8af74b
+      internalID: 1770651541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_26
+      name: sheet personaje videojuego corregido_27
       rect:
         serializedVersion: 2
         x: 320
@@ -696,14 +691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27f31f44815c06540ba6585ae8b5292e
-      internalID: -1164773668
+      spriteID: c7366f7f435f5e5438aa02c49fcf2d34
+      internalID: -825853274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_27
+      name: sheet personaje videojuego corregido_28
       rect:
         serializedVersion: 2
         x: 384
@@ -717,14 +712,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d42148de9266cd3489be26aa4f49b2fa
-      internalID: -1410921716
+      spriteID: 1f3a7d3913a3788478535b90d8c4e280
+      internalID: -704407854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_28
+      name: sheet personaje videojuego corregido_29
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 280
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbca31abb3e6de04c829a02aa2f8fb3e
+      internalID: 329547569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet personaje videojuego corregido_30
       rect:
         serializedVersion: 2
         x: 0
@@ -738,14 +754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa7e8b710f7912488997dcc3e82c10f
-      internalID: 194442681
+      spriteID: 9e9277c64a8dc4b4a84f6f0456e586e8
+      internalID: -985670098
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_29
+      name: sheet personaje videojuego corregido_31
       rect:
         serializedVersion: 2
         x: 64
@@ -759,14 +775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d082e673f8d760d4dbbedd3e899ca264
-      internalID: -1919860305
+      spriteID: cc77e42f7752ecb4390b2f26c502d467
+      internalID: 658168144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_30
+      name: sheet personaje videojuego corregido_32
       rect:
         serializedVersion: 2
         x: 128
@@ -780,14 +796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b31417cd8d09db46830fe9bfa639dd8
-      internalID: -2088078314
+      spriteID: c16c9083d1803994e92e952ad1ceaeec
+      internalID: 1619599066
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_31
+      name: sheet personaje videojuego corregido_33
       rect:
         serializedVersion: 2
         x: 192
@@ -801,14 +817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9849e172d6a505a4d82cb52a2ca7523d
-      internalID: 1172835187
+      spriteID: 087908c80ffa1ed4e9d1d35af23df545
+      internalID: 1867058809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_32
+      name: sheet personaje videojuego corregido_34
       rect:
         serializedVersion: 2
         x: 0
@@ -822,14 +838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd19788d7bf6fc64ca152e357d49f583
-      internalID: 579792005
+      spriteID: e65decedbd5833142a602a7d594e978e
+      internalID: 1465204058
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_33
+      name: sheet personaje videojuego corregido_35
       rect:
         serializedVersion: 2
         x: 64
@@ -843,14 +859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 059ff51488d6cdb40bc546f3807c5049
-      internalID: -1350423456
+      spriteID: e44779a3ca8f2f0449b37b4ed42259c1
+      internalID: -1853571325
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_34
+      name: sheet personaje videojuego corregido_36
       rect:
         serializedVersion: 2
         x: 128
@@ -864,14 +880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0a5482abb757c7448ec750444cc0d46
-      internalID: 1682987177
+      spriteID: 58d9a7a12cbdd1d4db04c65c964b8f56
+      internalID: 1535135163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_35
+      name: sheet personaje videojuego corregido_37
       rect:
         serializedVersion: 2
         x: 192
@@ -885,14 +901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c6b12213f5a507d4da58946723d2fed9
-      internalID: -916944688
+      spriteID: 9e1abfe6a38918b479b61ea7d9e4e21d
+      internalID: 887734969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego_36
+      name: sheet personaje videojuego corregido_38
       rect:
         serializedVersion: 2
         x: 256
@@ -906,8 +922,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bfb3c7336144442458b65287e3ca669b
-      internalID: 1991422190
+      spriteID: e0491462ad2918a42998bd3e2890c95a
+      internalID: 564538772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet personaje videojuego corregido_39
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec34bce60d35b90438950ba25d79b9f2
+      internalID: 1102481756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet personaje videojuego corregido_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea3200325e05f544837f67d0ce270b2
+      internalID: -502385048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sheet personaje videojuego corregido_41
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 88
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389469588ed76d04d941b89ddaf8f135
+      internalID: 884417707
       vertices: []
       indices: 
       edges: []
@@ -923,43 +1002,48 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sheet personaje videojuego_0: 1991175258
-      sheet personaje videojuego_1: 1358753764
-      sheet personaje videojuego_10: 580806621
-      sheet personaje videojuego_11: 1386228155
-      sheet personaje videojuego_12: -636785246
-      sheet personaje videojuego_13: -17757950
-      sheet personaje videojuego_14: -1827480734
-      sheet personaje videojuego_15: -825547989
-      sheet personaje videojuego_16: -141132741
-      sheet personaje videojuego_17: 1004482042
-      sheet personaje videojuego_18: -585629181
-      sheet personaje videojuego_19: 1873171041
-      sheet personaje videojuego_2: -1324932965
-      sheet personaje videojuego_20: 1957692015
-      sheet personaje videojuego_21: 2055201034
-      sheet personaje videojuego_22: -1519992204
-      sheet personaje videojuego_23: -429779687
-      sheet personaje videojuego_24: 123698171
-      sheet personaje videojuego_25: -113408630
-      sheet personaje videojuego_26: -1164773668
-      sheet personaje videojuego_27: -1410921716
-      sheet personaje videojuego_28: 194442681
-      sheet personaje videojuego_29: -1919860305
-      sheet personaje videojuego_3: 389961552
-      sheet personaje videojuego_30: -2088078314
-      sheet personaje videojuego_31: 1172835187
-      sheet personaje videojuego_32: 579792005
-      sheet personaje videojuego_33: -1350423456
-      sheet personaje videojuego_34: 1682987177
-      sheet personaje videojuego_35: -916944688
-      sheet personaje videojuego_36: 1991422190
-      sheet personaje videojuego_4: -844838799
-      sheet personaje videojuego_5: -1209999209
-      sheet personaje videojuego_6: -1679498170
-      sheet personaje videojuego_7: 676854081
-      sheet personaje videojuego_8: 1781948872
-      sheet personaje videojuego_9: -1001630258
+      sheet personaje videojuego corregido_0: 1709822907
+      sheet personaje videojuego corregido_1: 135095045
+      sheet personaje videojuego corregido_10: -243414060
+      sheet personaje videojuego corregido_11: -793560922
+      sheet personaje videojuego corregido_12: -116158390
+      sheet personaje videojuego corregido_13: 775791324
+      sheet personaje videojuego corregido_14: -1851841139
+      sheet personaje videojuego corregido_15: 383941618
+      sheet personaje videojuego corregido_16: -1465833223
+      sheet personaje videojuego corregido_17: -483953583
+      sheet personaje videojuego corregido_18: 946590268
+      sheet personaje videojuego corregido_19: -1855912725
+      sheet personaje videojuego corregido_2: 932184208
+      sheet personaje videojuego corregido_20: 507161783
+      sheet personaje videojuego corregido_21: -510961933
+      sheet personaje videojuego corregido_22: 718230165
+      sheet personaje videojuego corregido_23: -1209266090
+      sheet personaje videojuego corregido_24: 1585767677
+      sheet personaje videojuego corregido_25: -1634267163
+      sheet personaje videojuego corregido_26: 1770651541
+      sheet personaje videojuego corregido_27: -825853274
+      sheet personaje videojuego corregido_28: -704407854
+      sheet personaje videojuego corregido_29: 329547569
+      sheet personaje videojuego corregido_3: 1661024279
+      sheet personaje videojuego corregido_30: -985670098
+      sheet personaje videojuego corregido_31: 658168144
+      sheet personaje videojuego corregido_32: 1619599066
+      sheet personaje videojuego corregido_33: 1867058809
+      sheet personaje videojuego corregido_34: 1465204058
+      sheet personaje videojuego corregido_35: -1853571325
+      sheet personaje videojuego corregido_36: 1535135163
+      sheet personaje videojuego corregido_37: 887734969
+      sheet personaje videojuego corregido_38: 564538772
+      sheet personaje videojuego corregido_39: 1102481756
+      sheet personaje videojuego corregido_4: 1680447561
+      sheet personaje videojuego corregido_40: -502385048
+      sheet personaje videojuego corregido_41: 884417707
+      sheet personaje videojuego corregido_5: -620306545
+      sheet personaje videojuego corregido_6: -1730336281
+      sheet personaje videojuego corregido_7: -332417191
+      sheet personaje videojuego corregido_8: 1352699721
+      sheet personaje videojuego corregido_9: 1013695138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
