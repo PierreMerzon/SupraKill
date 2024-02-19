@@ -151,4 +151,232 @@ public class PlayerController : MonoBehaviour
 
     void IsNotAttackingEvent()
     { isAttacking = false; }
-}
+
+    //Buffer jump inputs
+
+    public class Fall : BaseState
+    {
+        [Export] public float jump_buffer_time = 0.1f;
+        [Export] public float move_speed = 60f;
+        [Export] public NodePath run_node;
+        [Export] public NodePath idle_node;
+        [Export] public NodePath jump_node;
+
+        private BaseState run_state;
+        private BaseState idle_state;
+        private BaseState jump_state;
+        private float jump_buffer_timer = 0f;
+
+        public override void _Ready()
+        {
+            run_state = GetNode<BaseState>(run_node);
+            idle_state = GetNode<BaseState>(idle_node);
+            jump_state = GetNode<BaseState>(jump_node);
+        }
+
+        public override void _EnterTree()
+        {
+            base._EnterTree();
+            jump_buffer_timer = 0f;
+        }
+
+        public override void _Input(InputEvent @event)
+        {
+            base._Input(@event);
+            if (@event.IsActionPressed("jump"))
+            {
+                jump_buffer_timer = jump_buffer_time;
+            }
+        }
+
+        public override BaseState _PhysicsProcess(float delta)
+        {
+            base._PhysicsProcess(delta);
+            jump_buffer_timer -= delta;
+
+            int move = 0;
+            if (Input.IsActionPressed("move_left"))
+            {
+                move = -1;
+                // player.animations.flip_h = true;
+            }
+            else if (Input.IsActionPressed("move_right"))
+            {
+                move = 1;
+                // player.animations.flip_h = false;
+            }
+
+            // player.velocity.x = move * move_speed;
+            // player.velocity.y += player.gravity;
+            // player.velocity = player.MoveAndSlide(player.velocity, Vector2.Up);
+
+            // if (player.IsOnFloor())
+            // {
+            //     if (jump_buffer_timer > 0)
+            //     {
+            //         return jump_state;
+            //     }
+            //     if (move != 0)
+            //     {
+            //         return run_state;
+            //     }
+            //     else
+            //     {
+            //         return idle_state;
+            //     }
+            // }
+            return null;
+        }
+
+        //Add coyote time
+
+        public class Fall : BaseState
+        {
+            [Export] public float coyote_time = 0.2f;
+            [Export] public float move_speed = 60f;
+            [Export] public NodePath run_node;
+            [Export] public NodePath idle_node;
+            [Export] public NodePath jump_node;
+
+            private BaseState run_state;
+            private BaseState idle_state;
+            private BaseState jump_state;
+            private float coyote_timer = 0f;
+
+            public override void _Ready()
+            {
+                run_state = GetNode<BaseState>(run_node);
+                idle_state = GetNode<BaseState>(idle_node);
+                jump_state = GetNode<BaseState>(jump_node);
+            }
+
+            public override void _EnterTree()
+            {
+                base._EnterTree();
+                coyote_timer = coyote_time;
+            }
+
+            public override BaseState _Input(InputEvent @event)
+            {
+                base._Input(@event);
+                if (@event.IsActionPressed("jump"))
+                {
+                    if (coyote_timer > 0)
+                    {
+                        return jump_state;
+                    }
+                }
+                return null;
+            }
+
+            public override BaseState _PhysicsProcess(float delta)
+            {
+                base._PhysicsProcess(delta);
+                coyote_timer -= delta;
+
+                int move = 0;
+                if (Input.IsActionPressed("move_left"))
+                {
+                    move = -1;
+                    // player.animations.flip_h = true;
+                }
+                else if (Input.IsActionPressed("move_right"))
+                {
+                    move = 1;
+                    // player.animations.flip_h = false;
+                }
+
+                // player.velocity.x = move * move_speed;
+                // player.velocity.y += player.gravity;
+                // player.velocity = player.MoveAndSlide(player.velocity, Vector2.Up);
+
+                // if (player.IsOnFloor())
+                // {
+                //     if (move != 0)
+                //     {
+                //         return run_state;
+                //     }
+                //     else
+                //     {
+                //         return idle_state;
+                //     }
+                // }
+                return null;
+            }
+
+            //Push off ledges
+
+            public class Jump : BaseState
+            {
+                [Export] public float jump_force = 100f;
+                [Export] public float move_speed = 60f;
+                [Export] public NodePath fall_node;
+                [Export] public NodePath run_node;
+                [Export] public NodePath idle_node;
+
+                private BaseState fall_state;
+                private BaseState run_state;
+                private BaseState idle_state;
+
+                public override void _Ready()
+                {
+                    fall_state = GetNode<BaseState>(fall_node);
+                    run_state = GetNode<BaseState>(run_node);
+                    idle_state = GetNode<BaseState>(idle_node);
+                }
+
+                public override void _EnterTree()
+                {
+                    base._EnterTree();
+                    player.velocity.y = -jump_force;
+                }
+
+                public override BaseState _PhysicsProcess(float delta)
+                {
+                    base._PhysicsProcess(delta);
+
+                    int move = 0;
+                    if (Input.IsActionPressed("move_left"))
+                    {
+                        move = -1;
+                        // player.animations.flip_h = true;
+                    }
+                    else if (Input.IsActionPressed("move_right"))
+                    {
+                        move = 1;
+                        // player.animations.flip_h = false;
+                    }
+
+                    // Adjust player position based on collision
+                    if (player.right_outer.IsColliding() && !player.right_inner.IsColliding() &&
+                        !player.left_inner.IsColliding() && !player.left_outer.IsColliding())
+                    {
+                        player.GlobalPosition -= new Vector2(5, 0);
+                    }
+                    else if (player.left_outer.IsColliding() && !player.left_inner.IsColliding() &&
+                             !player.right_inner.IsColliding() && !player.right_outer.IsColliding())
+                    {
+                        player.GlobalPosition += new Vector2(5, 0);
+                    }
+
+                    player.velocity.x = move * move_speed;
+                    player.velocity.y += player.gravity;
+                    player.velocity = player.MoveAndSlide(player.velocity, Vector2.Up);
+
+                    if (player.velocity.y > 0)
+                    {
+                        return fall_state;
+                    }
+
+                    if (player.IsOnFloor())
+                    {
+                        if (move != 0)
+                        {
+                            return run_state;
+                        }
+                        return idle_state;
+                    }
+
+                    return null;
+                }
+            }
