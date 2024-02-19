@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     [Header("General References")]
-    [SerializeField] Image healthBar;
+    //[SerializeField] Image healthBar;
 
     [Header("Health Parameters")]
     public float health;
@@ -21,7 +21,7 @@ public class HealthSystem : MonoBehaviour
     void Update()
     {
         if (health <= 0) { health = 0; }
-        healthBar.fillAmount = health / maxHealth;
+        //healthBar.fillAmount = health / maxHealth;
     }
 
     public void TakeDamage(int damage)
