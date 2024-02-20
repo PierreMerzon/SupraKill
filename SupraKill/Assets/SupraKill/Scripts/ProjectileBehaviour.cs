@@ -13,7 +13,7 @@ public class ProjectileBehaviour : MonoBehaviour
         if (Thrown)
         {
             var direction = -transform.right + Vector3.up;
-            GetComponent<Rigibody2D>().AddForce(direction * Speed, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(direction * Speed, ForceMode2D.Impulse);
         }
         transform.Translate(LaunchOffset);
 
@@ -30,10 +30,10 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<EnemyBehaviour>();
+        var enemy = collision.collider.GetComponent<EnemyController>();
         if (enemy)
         {
-            enemy.TakeHit(1);
+            enemy.TakeDamage(1);
         }
         Destroy(gameObject);
     }

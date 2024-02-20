@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy Stats")]
     public float speed;
     public int damage;
+    public float health;
 
     [SerializeField] private float vida;
 
