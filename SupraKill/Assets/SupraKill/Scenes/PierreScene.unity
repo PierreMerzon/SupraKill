@@ -825,6 +825,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1319537402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1319537403}
+  m_Layer: 0
+  m_Name: ControladorAtaque
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1319537403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1319537402}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2042186494}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568188710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1612,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3019586f44ee5246a07a5253c31f114, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1601,7 +1632,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1626889745}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3019586f44ee5246a07a5253c31f114, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1691,7 +1722,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7445616606897370895, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 63025967639358042, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1319537403}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2263697626143440069, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
       insertIndex: -1
@@ -1700,6 +1734,11 @@ PrefabInstance:
 --- !u!1 &2042186488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2263697626143440069, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+  m_PrefabInstance: {fileID: 1765129914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2042186494 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 63025967639358042, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
   m_PrefabInstance: {fileID: 1765129914}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2042186495
@@ -1715,8 +1754,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalInput: 0
+  velocityY: 0
   playerSpeed: 7
-  jumpForce: 5
+  jumpForce: 8
   gravityX: 0
   gravityY: -10
   isFacingRight: 1

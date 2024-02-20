@@ -11,11 +11,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float horizontalInput;
 
     [Header("Player Attributes")]
+    [SerializeField] float velocityY;
     public float playerSpeed;
     public float jumpForce;
 
     public float gravityX;
     public float gravityY;
+
 
 
     [Header("Player Direction")]
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        PlayerAttributes();
         PlayerDirection();
         Movement();
         Jump();
@@ -82,6 +85,14 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if (velocityY < 0.5)
+        {
+            playerRb.gravityScale = 2.5f;
+        }
+        else
+        {
+            playerRb.gravityScale = 1;
+        }
         //GROUNDCHECK
         isGrounded = Physics2D.OverlapArea(
                         new Vector2(groundCheck.transform.position.x - (groundedAreaLength / 2),
@@ -94,6 +105,12 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         }
+
+    }
+
+    void PlayerAttributes()
+    {
+        velocityY = playerRb.velocity.y;
     }
 
     void Atk()
@@ -101,13 +118,13 @@ public class PlayerController : MonoBehaviour
         if (!isAttacking & Input.GetKeyDown(KeyCode.RightArrow))
         {
             AttackingRight = true;
-            anim.SetTrigger("atk");
+            anim.SetTrigger("attack");
         }
 
         if (!isAttacking & Input.GetKeyDown(KeyCode.LeftArrow))
         {
             AttackingRight = false;
-            anim.SetTrigger("atk");
+            anim.SetTrigger("attack");
         }
     }
 
