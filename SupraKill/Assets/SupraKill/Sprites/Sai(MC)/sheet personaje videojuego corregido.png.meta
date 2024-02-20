@@ -117,8 +117,8 @@ TextureImporter:
         y: 536
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -138,8 +138,8 @@ TextureImporter:
         y: 536
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -159,8 +159,8 @@ TextureImporter:
         y: 536
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -180,8 +180,8 @@ TextureImporter:
         y: 536
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -201,8 +201,8 @@ TextureImporter:
         y: 536
         width: 64
         height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -299,27 +299,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego corregido_9
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 472
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0dd1f72d60daf44408679a0442c9933a
-      internalID: 1013695138
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: sheet personaje videojuego corregido_10
       rect:
         serializedVersion: 2
@@ -378,27 +357,6 @@ TextureImporter:
       bones: []
       spriteID: 9f5d7e2ccf3cd134d99231dd27a8366f
       internalID: -116158390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheet personaje videojuego corregido_13
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 408
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91c9cfff7de12354d994e66375c37f87
-      internalID: 775791324
       vertices: []
       indices: 
       edges: []
@@ -677,69 +635,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sheet personaje videojuego corregido_27
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 280
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7366f7f435f5e5438aa02c49fcf2d34
-      internalID: -825853274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheet personaje videojuego corregido_28
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 280
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f3a7d3913a3788478535b90d8c4e280
-      internalID: -704407854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sheet personaje videojuego corregido_29
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 280
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cbca31abb3e6de04c829a02aa2f8fb3e
-      internalID: 329547569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: sheet personaje videojuego corregido_30
       rect:
         serializedVersion: 2
@@ -747,8 +642,8 @@ TextureImporter:
         y: 216
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -768,8 +663,8 @@ TextureImporter:
         y: 216
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -789,8 +684,8 @@ TextureImporter:
         y: 216
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -810,8 +705,8 @@ TextureImporter:
         y: 216
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1875}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -991,27 +886,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: sheet personaje videojuego corregido_42
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 105
-        width: 572
-        height: 495
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0ea1ec60c484aa4ca147024d6a1085f
-      internalID: -2016848531
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1060,7 +934,6 @@ TextureImporter:
       sheet personaje videojuego corregido_4: 1680447561
       sheet personaje videojuego corregido_40: -502385048
       sheet personaje videojuego corregido_41: 884417707
-      sheet personaje videojuego corregido_42: -2016848531
       sheet personaje videojuego corregido_5: -620306545
       sheet personaje videojuego corregido_6: -1730336281
       sheet personaje videojuego corregido_7: -332417191
