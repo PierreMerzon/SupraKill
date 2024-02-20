@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float gravityX;
     public float gravityY;
 
+    public ProjectileBehaviour LaunchableProjectilePrefab;
+
     [Header("Player Direction")]
     [SerializeField] bool isFacingRight = true;
 
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
         Movement();
         Jump();
         Atk();
+        ThrowBomb();
         ConstantKoboldAnim();
         TriggerAnimations();
 
@@ -105,6 +108,14 @@ public class PlayerController : MonoBehaviour
         {
             AttackingRight = false;
             anim.SetTrigger("atk");
+        }
+    }
+
+    void ThrowBomb()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Instantiate(LaunchableProjectilePrefab, LaunchOffset.position, transform.rotation);
         }
     }
 
