@@ -24,8 +24,8 @@ public class Bomb : MonoBehaviour
 
         Collider2D[] objetos = Physics2D.OverlapCircleAll(transform.position, radio);
 
-        foreach (collider 2D colisionador in objetos)
-{
+        foreach (Collider 2D colisionador in objetos)
+        {
 
             Rigibody2D rb2D = colisionador.GetComponent<Rigibody2D>();
             if (rb2D != null)
