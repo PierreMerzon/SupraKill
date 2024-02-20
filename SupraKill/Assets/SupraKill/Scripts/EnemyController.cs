@@ -7,17 +7,31 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy Stats")]
     public float speed;
     public int damage;
+    public float health;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float vida;
+
+    private Animator animator;
+
+
+    private void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(float damage)
     {
-       
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        animator.SetTrigger("Death");
     }
 
 }
