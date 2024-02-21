@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public float gravityX;
     public float gravityY;
 
+    public int maxHealth = 100;
+    public int currentHealth;
 
 
     [Header("Player Direction")]
@@ -43,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         Physics2D.gravity = new Vector2(gravityX, gravityY);
     }
 
@@ -51,8 +54,8 @@ public class PlayerController : MonoBehaviour
         PlayerAttributes();
         PlayerDirection();
         Movement();
+        //TakeDamage();
         Jump();
-        Atk();
         ConstantKoboldAnim();
         TriggerAnimations();
 
@@ -113,21 +116,6 @@ public class PlayerController : MonoBehaviour
         velocityY = playerRb.velocity.y;
     }
 
-    void Atk()
-    {
-        if (!isAttacking & Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            AttackingRight = true;
-            anim.SetTrigger("attack");
-        }
-
-        if (!isAttacking & Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            AttackingRight = false;
-            anim.SetTrigger("attack");
-        }
-    }
-
     void PlayerDirection()
     {
         //Left Direction
@@ -157,6 +145,22 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded)
         { anim.SetBool("jump", true); }
         else { anim.SetBool("jump", false); }
+    }
+
+    void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0) 
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        //animator.SetTrigger("death");
+        //Then show death screen
     }
 
     void TriggerAnimations()
