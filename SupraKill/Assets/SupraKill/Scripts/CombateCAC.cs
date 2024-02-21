@@ -37,7 +37,7 @@ public class CombateCAC : MonoBehaviour
     private void Golpe()
     {
         animator.SetTrigger("attack");
-        if (Camera.main.ScreenToWorldPoint(Vector3 (Input.mousePosition)))
+        //if (Camera.main.ScreenToWorldPoint(Vector3 (Input.mousePosition)))
         {
 
         }
