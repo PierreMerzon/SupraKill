@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D playerRb;
+    private Rigidbody2D playerRb;
     private Animator anim;
     [SerializeField] float horizontalInput;
 
@@ -169,8 +170,16 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
+        playerRb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
         //Then show death screen
+    }
+
+    //RESTART
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void TriggerAnimations()
