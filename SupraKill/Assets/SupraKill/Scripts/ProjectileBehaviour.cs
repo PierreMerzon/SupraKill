@@ -30,7 +30,7 @@ public class ProjectileBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        var enemy = collision.collider.GetComponent<EnemyController>();
+        var enemy = collision.collider.GetComponent<Health>();
         if (enemy)
         {
             enemy.TakeDamage(1);
