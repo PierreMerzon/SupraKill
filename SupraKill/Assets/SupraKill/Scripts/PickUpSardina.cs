@@ -6,6 +6,7 @@ public class PickUpSardina : MonoBehaviour
 {
     PlayerController playerHealth;
     public float healthBonus = 15f;
+    [SerializeField] private AudioSource healSoundEffect;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class PickUpSardina : MonoBehaviour
     {
         if (playerHealth.currentHealth < playerHealth.maxHealth)
         {
+            healSoundEffect.Play();
             Destroy(gameObject);
             playerHealth.currentHealth = playerHealth.currentHealth + healthBonus;
         }

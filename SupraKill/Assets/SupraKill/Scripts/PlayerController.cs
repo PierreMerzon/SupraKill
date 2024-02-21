@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRb;
     private Animator anim;
     [SerializeField] float horizontalInput;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
 
     [Header("Player Attributes")]
     [SerializeField] float velocityY;
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            jumpSoundEffect.Play();
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         }
 
@@ -170,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
+        deathSoundEffect.Play();
         playerRb.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("death");
         //Then show death screen

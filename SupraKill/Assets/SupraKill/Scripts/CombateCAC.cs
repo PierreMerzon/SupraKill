@@ -14,6 +14,8 @@ public class CombateCAC : MonoBehaviour
 
     [SerializeField] private float tiempoSiguienteAtaque;
 
+    [SerializeField] private AudioSource attackSoundEffect;
+
     private Animator animator;
 
     private void Start()
@@ -29,6 +31,7 @@ public class CombateCAC : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire1") && tiempoSiguienteAtaque <= 0)
         {
+            attackSoundEffect.Play();
             Golpe();
             tiempoSiguienteAtaque = tiempoEntreAtaques;
         }
