@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D playerRb;
-    Animator anim;
+    private Rigidbody2D playerRb;
+    private Animator anim;
     [SerializeField] float horizontalInput;
+    [SerializeField] private AudioSource jumpSoundEffect;
+    [SerializeField] private AudioSource deathSoundEffect;
 
     [Header("Player Attributes")]
     [SerializeField] float velocityY;
@@ -18,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public float gravityX;
     public float gravityY;
 
+    public float maxHealth = 100;
+    public float currentHealth;
 
 
     [Header("Player Direction")]
@@ -43,7 +48,18 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentHealth = maxHealth;
         Physics2D.gravity = new Vector2(gravityX, gravityY);
+    }
+
+    //TRAMPA
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Death();
+        }
     }
 
     void Update()
@@ -51,9 +67,9 @@ public class PlayerController : MonoBehaviour
         PlayerAttributes();
         PlayerDirection();
         Movement();
+        //TakeDamage();
         Jump();
-        Atk();
-        ConstantKoboldAnim();
+        ConstantSaiAnim();
         TriggerAnimations();
 
         ConsoleInputLogs();
@@ -103,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            jumpSoundEffect.Play();
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         }
 
@@ -111,21 +128,6 @@ public class PlayerController : MonoBehaviour
     void PlayerAttributes()
     {
         velocityY = playerRb.velocity.y;
-    }
-
-    void Atk()
-    {
-        if (!isAttacking & Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            AttackingRight = true;
-            anim.SetTrigger("attack");
-        }
-
-        if (!isAttacking & Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            AttackingRight = false;
-            anim.SetTrigger("attack");
-        }
     }
 
     void PlayerDirection()
@@ -146,7 +148,7 @@ public class PlayerController : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    void ConstantKoboldAnim()
+    void ConstantSaiAnim()
     {
         //run ANIMATION
         if (System.Math.Abs(playerRb.velocity.x) > 1)
@@ -157,6 +159,31 @@ public class PlayerController : MonoBehaviour
         if (!isGrounded)
         { anim.SetBool("jump", true); }
         else { anim.SetBool("jump", false); }
+    }
+
+    void TakeDamage(int amount)
+    {
+        currentHealth -= amount;
+
+        if (currentHealth <= 0) 
+        {
+            Death();
+        }
+    }
+
+    private void Death()
+    {
+        deathSoundEffect.Play();
+        playerRb.bodyType = RigidbodyType2D.Static;
+        anim.SetTrigger("death");
+        //Then show death screen
+    }
+
+    //RESTART
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     void TriggerAnimations()
