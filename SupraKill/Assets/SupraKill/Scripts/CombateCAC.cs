@@ -5,18 +5,15 @@ using UnityEngine;
 public class CombateCAC : MonoBehaviour
 {
     [SerializeField] private Transform controladorGolpe;
-
     [SerializeField] private float radioGolpe;
-
     [SerializeField] private float dañoGolpe;
-
     [SerializeField] private float tiempoEntreAtaques;
-
     [SerializeField] private float tiempoSiguienteAtaque;
 
     [SerializeField] private AudioSource attackSoundEffect;
-
     private Animator animator;
+
+    [SerializeField] GameObject BottomCenter;
 
     private void Start()
     {
@@ -40,7 +37,10 @@ public class CombateCAC : MonoBehaviour
     private void Golpe()
     {
         animator.SetTrigger("attack");
+        if (Camera.main.ScreenToWorldPoint(Vector3 (Input.mousePosition)))
+        {
 
+        }
         Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
 
         foreach (Collider2D colisionador in objetos)

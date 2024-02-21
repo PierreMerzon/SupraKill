@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
         Movement();
         //TakeDamage();
         Jump();
-        ConstantKoboldAnim();
+        ConstantSaiAnim();
         TriggerAnimations();
 
         ConsoleInputLogs();
@@ -148,7 +148,7 @@ public class PlayerController : MonoBehaviour
         isFacingRight = !isFacingRight;
     }
 
-    void ConstantKoboldAnim()
+    void ConstantSaiAnim()
     {
         //run ANIMATION
         if (System.Math.Abs(playerRb.velocity.x) > 1)
