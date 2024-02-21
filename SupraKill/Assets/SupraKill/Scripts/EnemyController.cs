@@ -8,7 +8,6 @@ public class EnemyController : MonoBehaviour
     public float cronometro;
     public Animator ani;
     public int direccion;
-    public float speed_walk;
     public float speed_run;
     public GameObject target;
     public bool atacando;
@@ -48,7 +47,7 @@ public class EnemyController : MonoBehaviour
             switch (rutina)
             {
                 case 0:
-                    ani.SetBool("walk", false);
+                    ani.SetBool("run", false);
                     break;
 
                 case 1:
@@ -62,15 +61,15 @@ public class EnemyController : MonoBehaviour
                     {
                         case 0:
                             transform.rotation = Quaternion.Euler(0, 0, 0);
-                            transform.Translate(Vector3.right * speed_walk * Time.deltaTime);
+                            transform.Translate(Vector3.right * speed_run * Time.deltaTime);
                             break;
 
                         case 1:
                             transform.rotation = Quaternion.Euler(0, 180, 0);
-                            transform.Translate(Vector3.right * speed_walk * Time.deltaTime);
+                            transform.Translate(Vector3.right * speed_run * Time.deltaTime);
                             break;
                     }
-                    ani.SetBool("walk", true);
+                    ani.SetBool("run", true);
                     break;
             }
         }
@@ -80,7 +79,6 @@ public class EnemyController : MonoBehaviour
             {
                 if (transform.position.x < target.transform.position.x)
                 {
-                    ani.SetBool("walk", false);
                     ani.SetBool("run", true);
                     transform.Translate(Vector3.right * speed_run * Time.deltaTime);
                     transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -88,7 +86,6 @@ public class EnemyController : MonoBehaviour
                 }
                 else
                 {
-                    ani.SetBool("walk", false);
                     ani.SetBool("run", true);
                     transform.Translate(Vector3.right * speed_run * Time.deltaTime);
                     transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -107,7 +104,6 @@ public class EnemyController : MonoBehaviour
                     {
                         transform.rotation = Quaternion.Euler(0, 180, 0);
                     }
-                    ani.SetBool("walk", false);
                     ani.SetBool("run", false);
                 }
             }
@@ -141,7 +137,7 @@ public class EnemyController : MonoBehaviour
 
     private void Death()
     {
-        animator.SetTrigger("Death");
+        animator.SetTrigger("death");
     }
     void Update()
     {
