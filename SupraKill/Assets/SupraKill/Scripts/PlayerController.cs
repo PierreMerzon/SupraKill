@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D playerRb;
-    Animator anim;
+    private Animator anim;
     [SerializeField] float horizontalInput;
 
     [Header("Player Attributes")]
@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour
     public float gravityX;
     public float gravityY;
 
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
 
 
     [Header("Player Direction")]
@@ -47,6 +47,16 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth = maxHealth;
         Physics2D.gravity = new Vector2(gravityX, gravityY);
+    }
+
+    //TRAMPA
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            Death();
+        }
     }
 
     void Update()
@@ -159,7 +169,7 @@ public class PlayerController : MonoBehaviour
 
     private void Death()
     {
-        //animator.SetTrigger("death");
+        anim.SetTrigger("death");
         //Then show death screen
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemigo
   - PJ
+  - Trap
   layers:
   - Default
   - TransparentFX
