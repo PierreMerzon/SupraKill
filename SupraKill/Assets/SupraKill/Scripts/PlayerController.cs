@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Direction")]
     [SerializeField] bool isFacingRight = true;
+    [SerializeField] Vector2 moveAxis;
 
     [Header("Ground Check")]
     [SerializeField] float groundedAreaLength;
@@ -81,9 +82,23 @@ public class PlayerController : MonoBehaviour
     {
         PlayerAttributes();
         PlayerDirection();
-        Movement();
         //TakeDamage();
-        Jump();
+
+        if (velocityY < 0.5)
+        {
+            playerRb.gravityScale = 4f;
+        }
+        else
+        {
+            playerRb.gravityScale = 2;
+        }
+        //GROUNDCHECK
+        isGrounded = Physics2D.OverlapArea(
+                        new Vector2(groundCheck.transform.position.x - (groundedAreaLength / 2),
+                                    groundCheck.transform.position.y - groundedAreaHeight),
+                        new Vector2(groundCheck.transform.position.x + (groundedAreaLength / 2),
+                                    groundCheck.transform.position.y + 0.01f),
+                                    groundLayer);
 
         Vector3 screenPosition = Input.mousePosition;
         mousePos = Camera.main.ScreenToWorldPoint(screenPosition);
@@ -96,20 +111,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerSpeed = 1;
-            if ()
-            {
-                anim.SetTrigger("attack");
-                if (mousePos.x > groundCheck.transform.position.x)
-                {
-                    AttackingRight = true;
-                    Atk();
-                }
-                else if (mousePos.x < groundCheck.transform.position.x)
-                {
-                    AttackingRight = false;
-                    Atk();
-                }
-            }
         }
 
         ConstantSaiAnim();
@@ -117,16 +118,34 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Atk()
+    public void Attack(InputAction.CallbackContext context)
     {
+        if (!isAttacking)
+        {
+            anim.SetTrigger("attack");
+            if (mousePos.x > groundCheck.transform.position.x)
+            {
+                AttackingRight = true;
+                Atk();
+            }
+            else if (mousePos.x < groundCheck.transform.position.x)
+            {
+                AttackingRight = false;
+                Atk();
+            }
+        }
+
+        void Atk() 
+        { 
         attackSoundEffect.Play();
         Collider2D[] objects = Physics2D.OverlapCircleAll(atkController.position, atkRadius);
 
-        foreach (Collider2D collider in objects)
-        {
-            if (collider.CompareTag("Enemigo"))
+            foreach (Collider2D collider in objects)
             {
+                if (collider.CompareTag("Enemigo"))
+                {
                 collider.transform.GetComponent<Health>().TakeDamage(atkDmg);
+                }
             }
         }
     }
@@ -138,40 +157,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void Movement()
+    public void Movement(InputAction.CallbackContext context)
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        playerRb.velocity = new Vector2(horizontalInput * playerSpeed * playerBaseSpeed, playerRb.velocity.y);
+        moveAxis = context.ReadValue<Vector2>();
+
+        playerRb.AddForce(moveAxis, ForceMode2D.Impulse);
     }
 
     void PlayerAttributes()
     {
         velocityY = playerRb.velocity.y;
-        if (velocityY < 0.5)
-        {
-            playerRb.gravityScale = 2.5f;
-        }
-        else
-        {
-            playerRb.gravityScale = 1;
-        }
-        //GROUNDCHECK
-        isGrounded = Physics2D.OverlapArea(
-                        new Vector2(groundCheck.transform.position.x - (groundedAreaLength / 2),
-                                    groundCheck.transform.position.y - groundedAreaHeight),
-                        new Vector2(groundCheck.transform.position.x + (groundedAreaLength / 2),
-                                    groundCheck.transform.position.y + 0.01f),
-                                    groundLayer);
     }
 
-    void Jump(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded)
         {
             jumpSoundEffect.Play();
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
         }
-
     }
 
 
