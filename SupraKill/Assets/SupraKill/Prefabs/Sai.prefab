@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4475538363621525485}
   - component: {fileID: 2575411458032888966}
   - component: {fileID: 5586968186002101495}
-  - component: {fileID: 2880503591364932821}
   - component: {fileID: 8372583615944034468}
   - component: {fileID: 280102559398006267}
   - component: {fileID: 5134072676855243780}
@@ -212,6 +211,12 @@ MonoBehaviour:
   isFacingRight: 1
   isAttacking: 0
   AttackingRight: 0
+  atkController: {fileID: 613946485591547210}
+  atkRadius: 0.5
+  atkDmg: 20
+  atkCD: 0.5
+  timeUntilAttack: 0
+  attackSoundEffect: {fileID: 8372583615944034468}
   groundedAreaLength: 0.1
   groundedAreaHeight: 0.07
   isGrounded: 0
@@ -219,25 +224,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &2880503591364932821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2263697626143440069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ef78d30bf3767547a66e49350847278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controladorGolpe: {fileID: 613946485591547210}
-  radioGolpe: 0.5
-  "da\xF1oGolpe": 20
-  tiempoEntreAtaques: 0.5
-  tiempoSiguienteAtaque: 0
-  attackSoundEffect: {fileID: 5134072676855243780}
-  BottomCenter: {fileID: 3068648717923603319}
 --- !u!82 &8372583615944034468
 AudioSource:
   m_ObjectHideFlags: 0
@@ -567,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 613946485591547210}
   m_Layer: 0
-  m_Name: ControladorAtaque
+  m_Name: AtkController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

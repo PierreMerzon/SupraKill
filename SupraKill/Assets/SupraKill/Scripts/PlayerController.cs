@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -15,7 +16,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Attributes")]
     [SerializeField] float velocityY;
+    [SerializeField] float playerBaseSpeed;
     public float playerSpeed;
+ 
     public float jumpForce;
 
     public float gravityX;
@@ -28,16 +31,27 @@ public class PlayerController : MonoBehaviour
     [Header("Player Direction")]
     [SerializeField] bool isFacingRight = true;
 
-    [Header("Attack")]
-    [SerializeField] bool isAttacking;
-    [SerializeField] bool AttackingRight;
-
     [Header("Ground Check")]
     [SerializeField] float groundedAreaLength;
     [SerializeField] float groundedAreaHeight;
     [SerializeField] bool isGrounded;
     [SerializeField] GameObject groundCheck;
     [SerializeField] LayerMask groundLayer;
+
+    [Header("Attack")]
+    [SerializeField] bool isAttacking;
+    [SerializeField] bool AttackingRight;
+
+    [SerializeField] private Transform atkController;
+    [SerializeField] private float atkRadius;
+    [SerializeField] private float atkDmg;
+    [SerializeField] private float atkCD;
+    [SerializeField] private float timeUntilAttack;
+
+    [SerializeField] private AudioSource attackSoundEffect;
+
+    [Header("Mouse Position")]
+    [SerializeField] Vector3 mousePos;
 
     private void Awake()
     {
@@ -69,34 +83,64 @@ public class PlayerController : MonoBehaviour
         Movement();
         //TakeDamage();
         Jump();
+
+        Vector3 screenPosition = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(screenPosition);
+        mousePos.z = 0;
+
+        if (isAttacking)
+        {
+            playerSpeed = .3f;
+        }
+        else
+        {
+            playerSpeed = 1;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                anim.SetTrigger("attack");
+                if (mousePos.x > groundCheck.transform.position.x)
+                {
+                    AttackingRight = true;
+                    Atk();
+                }
+                else if (mousePos.x < groundCheck.transform.position.x)
+                {
+                    AttackingRight = false;
+                    Atk();
+                }
+            }
+        }
+
         ConstantSaiAnim();
         TriggerAnimations();
 
-        ConsoleInputLogs();
-
-        if (!isAttacking & Input.GetKeyDown(KeyCode.F))
-            anim.SetTrigger("hit");
-
-        if (!isAttacking & Input.GetKeyDown(KeyCode.G))
-            anim.SetTrigger("death");
-
     }
 
-    void ConsoleInputLogs()
+    private void Atk()
     {
-        if (Input.GetKey(KeyCode.F)) { Debug.Log("Tecla F"); }
-        if (Input.GetKey(KeyCode.G)) { Debug.Log("Tecla G"); }
-        if (Input.GetKey(KeyCode.A)) { Debug.Log("Tecla A"); }
-        if (Input.GetKey(KeyCode.D)) { Debug.Log("Tecla D"); }
-        if (Input.GetKey(KeyCode.LeftArrow)) { Debug.Log("Flecha izquierda"); }
-        if (Input.GetKey(KeyCode.RightArrow)) { Debug.Log("Tecla derecha"); }
-        if (Input.GetKey(KeyCode.Space)) { Debug.Log("Barra espaciadora"); }
+        attackSoundEffect.Play();
+        Collider2D[] objects = Physics2D.OverlapCircleAll(atkController.position, atkRadius);
+
+        foreach (Collider2D collider in objects)
+        {
+            if (collider.CompareTag("Enemigo"))
+            {
+                collider.transform.GetComponent<Health>().TakeDamage(atkDmg);
+            }
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(atkController.position, atkRadius);
+
     }
 
     void Movement()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        playerRb.velocity = new Vector2(horizontalInput * playerSpeed, playerRb.velocity.y);
+        playerRb.velocity = new Vector2(horizontalInput * playerSpeed * playerBaseSpeed, playerRb.velocity.y);
     }
 
     void Jump()

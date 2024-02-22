@@ -1435,11 +1435,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sai
       objectReference: {fileID: 0}
+    - target: {fileID: 5586968186002101495, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+      propertyPath: playerSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586968186002101495, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+      propertyPath: playerBaseSpeed
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5586968186002101495, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+      propertyPath: attackSoundEffect
+      value: 
+      objectReference: {fileID: 1372632114}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+--- !u!82 &1372632114 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5134072676855243780, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+  m_PrefabInstance: {fileID: 1317633956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1385600681
 GameObject:
   m_ObjectHideFlags: 0
