@@ -256,7 +256,7 @@ public class PlayerController : MonoBehaviour
         else { anim.SetBool("jump", false); }
     }
 
-    void TakeDamage(int amount)
+    public void SaiTakeDamage(int amount)
     {
         Debug.Log("player hit");
 

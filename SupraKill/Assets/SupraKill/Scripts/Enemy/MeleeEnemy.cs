@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
@@ -32,19 +33,15 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private Behaviour[] components;
     private bool invulnerable;
 
-
-    [SerializeField] Vector2 min;
-    [SerializeField] Vector2 max;
-
     //References
     private Animator anim;
     private MeleeEnemy playerHealth;
     private EnemyPatrol enemyPatrol;
-    [SerializeField] PlayerController pController;
+    [SerializeField] private GameObject Sai;
 
     private void Awake()
     {
-        pController = GetComponent<PlayerController>();
+        
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
 
@@ -55,9 +52,6 @@ public class MeleeEnemy : MonoBehaviour
 
     private void Update()
     {
-
-        min = boxCollider.bounds.min;
-        max = boxCollider.bounds.max;
         if (Physics2D.OverlapArea(new Vector2(transform.position.x - .5f, boxCollider.bounds.min.y), new Vector2(transform.position.x + range, boxCollider.bounds.max.y), playerLayer))
         { playerInRange = true; }
         else { playerInRange = false; }
@@ -66,17 +60,14 @@ public class MeleeEnemy : MonoBehaviour
         {
             anim.SetTrigger("attack");
         }
-
-        //if (enemyPatrol != null)
-            //enemyPatrol.enabled = !PlayerInSight();
     }
 
     void Attack()
     {
         Debug.Log("attack done");
         if (playerInRange)
-        { 
-            pController.TakeDamage(atkDmg);
+        {
+            Sai.GetComponent<PlayerController>().SaiTakeDamage(atkDmg);
         }
         
     }
