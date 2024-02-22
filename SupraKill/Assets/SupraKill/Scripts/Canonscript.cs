@@ -8,6 +8,7 @@ public class Canonscript : MonoBehaviour
     public GameObject bullet;
     float timebetween;
     public float starttimebetween;
+    private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class Canonscript : MonoBehaviour
     {
         if(timebetween <= 0)
         {
+            anim.SetTrigger("shoot");
             Instantiate(bullet,firepoint.position,firepoint.rotation);
             timebetween = starttimebetween;
         }
