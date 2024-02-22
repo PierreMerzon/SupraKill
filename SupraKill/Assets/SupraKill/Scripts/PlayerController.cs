@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isAttacking;
     [SerializeField] bool AttackingRight;
 
+    [SerializeField] float atkMoveSpeed;
     [SerializeField] private Transform atkController;
     [SerializeField] private float atkRadius;
     [SerializeField] private float atkDmg;
@@ -90,12 +91,12 @@ public class PlayerController : MonoBehaviour
 
         if (isAttacking)
         {
-            playerSpeed = .3f;
+            playerSpeed = atkMoveSpeed;
         }
         else
         {
             playerSpeed = 1;
-            if (Input.GetButtonDown("Fire1"))
+            if ()
             {
                 anim.SetTrigger("attack");
                 if (mousePos.x > groundCheck.transform.position.x)
@@ -143,8 +144,9 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = new Vector2(horizontalInput * playerSpeed * playerBaseSpeed, playerRb.velocity.y);
     }
 
-    void Jump()
+    void PlayerAttributes()
     {
+        velocityY = playerRb.velocity.y;
         if (velocityY < 0.5)
         {
             playerRb.gravityScale = 2.5f;
@@ -160,8 +162,11 @@ public class PlayerController : MonoBehaviour
                         new Vector2(groundCheck.transform.position.x + (groundedAreaLength / 2),
                                     groundCheck.transform.position.y + 0.01f),
                                     groundLayer);
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+    void Jump(InputAction.CallbackContext context)
+    {
+        if (isGrounded)
         {
             jumpSoundEffect.Play();
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
@@ -169,10 +174,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void PlayerAttributes()
-    {
-        velocityY = playerRb.velocity.y;
-    }
 
     void PlayerDirection()
     {
