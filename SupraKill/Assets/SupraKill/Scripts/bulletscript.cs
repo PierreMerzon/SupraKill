@@ -11,6 +11,7 @@ public class bulletscript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right * speed;
+        Destroy(gameObject, 4f);
     }
 
     // Update is called once per frame
