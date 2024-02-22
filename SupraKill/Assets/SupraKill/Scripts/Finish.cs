@@ -9,7 +9,7 @@ public class Finish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pj"))
+        if (collision.gameObject.CompareTag("PJ"))
         { 
         SceneManager.LoadScene("Level2");
         }
