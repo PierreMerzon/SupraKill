@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8635892529620735678}
   - component: {fileID: 3734181767196867233}
-  - component: {fileID: 5854574972071368660}
   - component: {fileID: 3572173918812166817}
   m_Layer: 0
   m_Name: "Ca\xF1\xF3n 1"
@@ -87,27 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &5854574972071368660
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1302235175583331670}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4972be8db62132f4a8d052920c2c6b94, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &3572173918812166817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 9178855048916395670}
-  bullet: {fileID: 0}
-  starttimebetween: 0
+  bullet: {fileID: 5941811253911340064, guid: e939d39d535fb5c49b2d0660571b4a13, type: 3}
+  starttimebetween: 2
 --- !u!1 &7971937470178648723
 GameObject:
   m_ObjectHideFlags: 0
