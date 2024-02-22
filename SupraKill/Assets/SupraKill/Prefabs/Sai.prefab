@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8372583615944034468}
   - component: {fileID: 280102559398006267}
   - component: {fileID: 5134072676855243780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sai
   m_TagString: PJ
   m_Icon: {fileID: 0}
@@ -203,8 +203,10 @@ MonoBehaviour:
   jumpSoundEffect: {fileID: 8372583615944034468}
   deathSoundEffect: {fileID: 280102559398006267}
   velocityY: 0
-  playerBaseSpeed: 5.5
+  velocityX: 0
+  playerBaseSpeed: 1.21
   playerSpeed: 0
+  stoppingSpeed: 0.15
   jumpForce: 7.6
   gravityX: 0
   gravityY: -10
@@ -213,7 +215,7 @@ MonoBehaviour:
   isFacingRight: 1
   moveAxis: {x: 0, y: 0}
   groundedAreaLength: 0.1
-  groundedAreaHeight: 0.0001
+  groundedAreaHeight: 0.001
   isGrounded: 0
   groundCheck: {fileID: 3068648717923603319}
   groundLayer:
@@ -221,7 +223,7 @@ MonoBehaviour:
     m_Bits: 8
   isAttacking: 0
   AttackingRight: 0
-  atkMoveSpeed: 0.5
+  atkMoveSpeed: 0.2
   atkController: {fileID: 613946485591547210}
   atkRadius: 0.5
   atkDmg: 20
@@ -258,8 +260,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5586968186002101495}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: MovementAxis
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -620,7 +622,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5197805466008358474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 613946485591547210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AtkController
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,9 +5,10 @@ using UnityEngine;
 public class MeleeEnemy : MonoBehaviour
 {
     [Header("Attack Parameters")]
-    [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
-    [SerializeField] private int damage;
+    [SerializeField] private int atkDmg;
+    [SerializeField] private bool playerInRange;
+    [SerializeField] bool isAttacking;
 
     [Header("Collider Parameters")]
     [SerializeField] private float colliderDistance;
@@ -15,59 +16,120 @@ public class MeleeEnemy : MonoBehaviour
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
+
+
+    [Header("Health")]
+    [SerializeField] private float startingHealth;
+    public float currentHealth { get; private set; }
+    private bool dead;
+
+    [Header("iFrames")]
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numberOfFlashes;
+    private SpriteRenderer spriteRend;
+
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
+    private bool invulnerable;
+
+
+    [SerializeField] Vector2 min;
+    [SerializeField] Vector2 max;
 
     //References
     private Animator anim;
-    private Health playerHealth;
+    private MeleeEnemy playerHealth;
     private EnemyPatrol enemyPatrol;
+    [SerializeField] PlayerController pController;
 
     private void Awake()
     {
+        pController = GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
+
+        currentHealth = startingHealth;
+        anim = GetComponent<Animator>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        cooldownTimer += Time.deltaTime;
 
-        //Attack only when player in sight?
-        if (PlayerInSight())
+        min = boxCollider.bounds.min;
+        max = boxCollider.bounds.max;
+        if (Physics2D.OverlapArea(new Vector2(transform.position.x - .5f, boxCollider.bounds.min.y), new Vector2(transform.position.x + range, boxCollider.bounds.max.y), playerLayer))
+        { playerInRange = true; }
+        else { playerInRange = false; }
+
+        if (playerInRange && !isAttacking)
         {
-            if (cooldownTimer >= attackCooldown)
-            {
-                cooldownTimer = 0;
-                anim.SetTrigger("attack");
-            }
+            anim.SetTrigger("attack");
         }
 
-        if (enemyPatrol != null)
-            enemyPatrol.enabled = !PlayerInSight();
+        //if (enemyPatrol != null)
+            //enemyPatrol.enabled = !PlayerInSight();
     }
 
-    private bool PlayerInSight()
+    void Attack()
     {
-        RaycastHit2D hit =
-            Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
-            0, Vector2.left, 0, playerLayer);
-
-        if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health>();
-
-        return hit.collider != null;
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        Debug.Log("attack done");
+        if (playerInRange)
+        { 
+            pController.TakeDamage(atkDmg);
+        }
+        
     }
 
-    private void DamagePlayer()
+    public void TakeDamage(float _damage)
     {
-        if (PlayerInSight())
-            playerHealth.TakeDamage(damage);
+        if (invulnerable) return;
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        if (currentHealth > 0)
+        {
+            anim.SetTrigger("hurt");
+            StartCoroutine(Invunerability());
+        }
+        else
+        {
+            if (!dead)
+            {
+                anim.SetTrigger("death");
+
+                //Deactivate all attached component classes
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+
+                dead = true;
+            }
+        }
+    }
+    public void AddHealth(float _value)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+    }
+    private IEnumerator Invunerability()
+    {
+        invulnerable = true;
+        Physics2D.IgnoreLayerCollision(10, 11, true);
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+        Physics2D.IgnoreLayerCollision(10, 11, false);
+        invulnerable = false;
+    }
+
+    void isAttackingTrue()
+    {
+        isAttacking = true;
+    }
+    void isAttackingFalse()
+    {
+        isAttacking = false;
     }
 }

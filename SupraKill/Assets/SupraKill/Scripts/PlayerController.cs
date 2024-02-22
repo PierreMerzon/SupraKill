@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Utilities;
 using UnityEngine.SceneManagement;
+using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,9 +18,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Attributes")]
     [SerializeField] float velocityY;
+    [SerializeField] float velocityX;
     [SerializeField] float playerBaseSpeed;
     public float playerSpeed;
- 
+    [SerializeField] float stoppingSpeed;
+
     public float jumpForce;
 
     public float gravityX;
@@ -81,7 +85,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerAttributes();
-        PlayerDirection();
+        
         //TakeDamage();
 
         if (velocityY < 0.5)
@@ -116,6 +120,53 @@ public class PlayerController : MonoBehaviour
         ConstantSaiAnim();
         TriggerAnimations();
 
+
+
+    }
+
+
+    private void FixedUpdate()
+    {
+        Movement();
+        PlayerDirection();
+
+    }
+
+    public void MovementAxis(InputAction.CallbackContext context)
+    {
+        moveAxis = context.ReadValue<Vector2>();
+    }
+
+    void Movement()
+    {
+
+        if (isGrounded)
+        {
+            if (isAttacking)
+            {
+                playerRb.velocity = new Vector2(velocityX / 1.05f, velocityY);
+            }
+            else if (moveAxis.x == 0)
+            {
+                if (Math.Abs(velocityX) > stoppingSpeed)
+                {
+                    playerRb.velocity = new Vector2(velocityX / 1.15f, velocityY);
+                }
+                else
+                {
+                    playerRb.velocity = new Vector2(0, velocityY);
+                }
+            }
+        }
+
+        if (moveAxis.x > 0 && velocityX < playerBaseSpeed * 5)
+        {
+            playerRb.AddForce(moveAxis * (playerBaseSpeed / 1.5f) * playerSpeed, ForceMode2D.Impulse);
+        }
+        else if (moveAxis.x < 0 && velocityX > -playerBaseSpeed * 5)
+        {
+            playerRb.AddForce(moveAxis * (playerBaseSpeed / 1.5f) * playerSpeed, ForceMode2D.Impulse);
+        }
     }
 
     public void Attack(InputAction.CallbackContext context)
@@ -144,7 +195,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (collider.CompareTag("Enemigo"))
                 {
-                collider.transform.GetComponent<Health>().TakeDamage(atkDmg);
+                collider.transform.GetComponent<MeleeEnemy>().TakeDamage(atkDmg);
                 }
             }
         }
@@ -157,15 +208,9 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    public void Movement(InputAction.CallbackContext context)
-    {
-        moveAxis = context.ReadValue<Vector2>();
-
-        playerRb.AddForce(moveAxis, ForceMode2D.Impulse);
-    }
-
     void PlayerAttributes()
     {
+        velocityX = playerRb.velocity.x;
         velocityY = playerRb.velocity.y;
     }
 
@@ -181,6 +226,7 @@ public class PlayerController : MonoBehaviour
 
     void PlayerDirection()
     {
+        horizontalInput = moveAxis.x;
         //Left Direction
         if (isAttacking && !AttackingRight && isFacingRight) { Flip(); }
         else if (!isAttacking && horizontalInput < 0 && isFacingRight) { Flip(); }
@@ -200,7 +246,7 @@ public class PlayerController : MonoBehaviour
     void ConstantSaiAnim()
     {
         //run ANIMATION
-        if (System.Math.Abs(playerRb.velocity.x) > 1)
+        if (Math.Abs(playerRb.velocity.x) > 1)
         { anim.SetBool("run", true); }
         else { anim.SetBool("run", false); }
 
@@ -212,6 +258,8 @@ public class PlayerController : MonoBehaviour
 
     void TakeDamage(int amount)
     {
+        Debug.Log("player hit");
+
         currentHealth -= amount;
 
         if (currentHealth <= 0) 
