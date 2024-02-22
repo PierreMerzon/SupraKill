@@ -2580,6 +2580,11 @@ MonoBehaviour:
   parallaxEffect: 0.7
   temp: 0
   dist: 0
+--- !u!1 &1924262453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2263697626143440069, guid: 18329433066c2f64f89d2fc827f22fe4, type: 3}
+  m_PrefabInstance: {fileID: 1317633956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1953858007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,6 +2891,63 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1001 &842391730400642462
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1415987182372760178, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_Name
+      value: Murlock
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.018379621
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224330295332643822, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
 --- !u!4 &1197109222301544318
 Transform:
   m_ObjectHideFlags: 0
@@ -4069,6 +4131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 748706081776905963, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
+      propertyPath: Sai
+      value: 
+      objectReference: {fileID: 1924262453}
     - target: {fileID: 3880907591007003232, guid: 6515711e5fac70e4ca6a1de73527db15, type: 3}
       propertyPath: m_Name
       value: Murlock
@@ -4126,4 +4192,4 @@ SceneRoots:
   - {fileID: 1259868501685831782}
   - {fileID: 1317633956}
   - {fileID: 1821145833}
-  - {fileID: 3981336574269783462}
+  - {fileID: 842391730400642462}

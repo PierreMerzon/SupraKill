@@ -21,7 +21,7 @@ public class MeleeEnemy : MonoBehaviour
 
     [Header("Health")]
     [SerializeField] private float startingHealth;
-    public float currentHealth { get; private set; }
+    public float currentHealth;
     private bool dead;
 
     [Header("iFrames")]
@@ -41,7 +41,6 @@ public class MeleeEnemy : MonoBehaviour
 
     private void Awake()
     {
-        
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
 
