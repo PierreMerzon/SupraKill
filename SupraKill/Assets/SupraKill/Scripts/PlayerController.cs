@@ -139,7 +139,7 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-
+        //Frenada
         if (isGrounded)
         {
             if (isAttacking)
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (Math.Abs(velocityX) > stoppingSpeed)
                 {
-                    playerRb.velocity = new Vector2(velocityX / 1.15f, velocityY);
+                    playerRb.velocity = new Vector2(velocityX / 1.3f, velocityY);
                 }
                 else
                 {
