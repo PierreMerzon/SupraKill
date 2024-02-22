@@ -193,15 +193,30 @@ public class PlayerController : MonoBehaviour
 
             foreach (Collider2D collider in objects)
             {
-                if (collider.CompareTag("Enemigo"))
+                if (collider.CompareTag("Enemy"))
                 {
                 collider.transform.GetComponent<MeleeEnemy>().TakeDamage(atkDmg);
                 }
             }
         }
     }
+    void Atk()
+    {
+        attackSoundEffect.Play();
+        Collider2D[] objects = Physics2D.OverlapCircleAll(atkController.position, atkRadius);
 
-    private void OnDrawGizmos()
+        foreach (Collider2D collider in objects)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                collider.transform.GetComponent<MeleeEnemy>().TakeDamage(atkDmg);
+            }
+        }
+    }
+
+
+
+private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(atkController.position, atkRadius);

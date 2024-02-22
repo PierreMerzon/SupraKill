@@ -11,12 +11,6 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private bool playerInRange;
     [SerializeField] bool isAttacking;
 
-    [Header("Collider Parameters")]
-    [SerializeField] private float colliderDistance;
-    [SerializeField] private BoxCollider2D boxCollider;
-
-    [Header("Player Layer")]
-    [SerializeField] private LayerMask playerLayer;
 
 
     [Header("Health")]
@@ -35,23 +29,26 @@ public class MeleeEnemy : MonoBehaviour
 
     //References
     private Animator anim;
+    private BoxCollider2D boxCollider;
     private MeleeEnemy playerHealth;
     private EnemyPatrol enemyPatrol;
-    [SerializeField] private GameObject Sai;
+
+    //External References
+    private GameObject sai;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        enemyPatrol = GetComponentInParent<EnemyPatrol>();
-
+        sai = GameObject.Find("Sai");
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
+        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        boxCollider = GetComponent<BoxCollider2D>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (Physics2D.OverlapArea(new Vector2(transform.position.x - .5f, boxCollider.bounds.min.y), new Vector2(transform.position.x + range, boxCollider.bounds.max.y), playerLayer))
+        if (Physics2D.OverlapArea(new Vector2(transform.position.x - .5f, boxCollider.bounds.min.y), new Vector2(transform.position.x + range, boxCollider.bounds.max.y), LayerMask.GetMask("Player")))
         { playerInRange = true; }
         else { playerInRange = false; }
 
@@ -66,14 +63,13 @@ public class MeleeEnemy : MonoBehaviour
         Debug.Log("attack done");
         if (playerInRange)
         {
-            Sai.GetComponent<PlayerController>().SaiTakeDamage(atkDmg);
+            sai.GetComponent<PlayerController>().SaiTakeDamage(atkDmg);
         }
-        
     }
 
     public void TakeDamage(float _damage)
     {
-        if (invulnerable) return;
+        if (!invulnerable) return;
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0)
@@ -95,10 +91,7 @@ public class MeleeEnemy : MonoBehaviour
             }
         }
     }
-    public void AddHealth(float _value)
-    {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
-    }
+
     private IEnumerator Invunerability()
     {
         invulnerable = true;
@@ -113,7 +106,7 @@ public class MeleeEnemy : MonoBehaviour
         Physics2D.IgnoreLayerCollision(10, 11, false);
         invulnerable = false;
     }
-
+   
     void isAttackingTrue()
     {
         isAttacking = true;

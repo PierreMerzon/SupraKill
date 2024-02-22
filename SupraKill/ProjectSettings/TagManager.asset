@@ -4,10 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemigo
   - PJ
   - Trap
   - Bombita
+  - Enemy
   layers:
   - Default
   - TransparentFX
