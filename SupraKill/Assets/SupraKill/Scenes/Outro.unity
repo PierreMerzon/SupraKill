@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &419636935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1166444480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -617,6 +617,34 @@ PlayableDirector:
   - key: {fileID: 5346545861479477560, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
     value: {fileID: 1166444479}
   - key: {fileID: -2421653521708155195, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -9117597990637244690, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -8551510249357460986, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -774722800053011292, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -6341451489968649607, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 9046318316654208859, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7678246887861031581, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 7103920584888791290, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 2691495736832126009, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4249090687614805995, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3748845837365855251, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4364956823191641130, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 5605409881478987019, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 6055585566494136965, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 4817911328247648864, guid: 149ba71ca0a11b74a9458d536dab03cb, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
