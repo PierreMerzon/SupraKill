@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/SupraKill/Scenes/Portada.unity
     guid: 35d5043f42b3940ccb60c9c7697a4a7e
   - enabled: 1
-    path: Assets/SupraKill/Scenes/Intro.unity
-    guid: e7fdd7f00ff422e41aaad9a4ba49b604
+    path: Assets/SupraKill/Scenes/NVL2.unity
+    guid: 9c1daea8a7763e248aee35709e9a133c
   - enabled: 1
-    path: Assets/SupraKill/Scenes/LuciaScene.unity
-    guid: ffc5a665ae6ac814cbf4374d86911237
+    path: Assets/SupraKill/Scenes/ZuheScene.unity
+    guid: 9e1ad5bac6074184c94d247eacc83d10
   - enabled: 1
-    path: Assets/SupraKill/Scenes/ProtoScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/SupraKill/Scenes/EndPanel.unity
+    guid: 7167d6c971c8a41eeb133aae36c0cfd8
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: fe101e75a7356d84d833e4cbea938f82, type: 2}
