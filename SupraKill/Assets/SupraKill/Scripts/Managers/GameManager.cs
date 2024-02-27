@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -25,11 +26,20 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        if (points >= winPoints)
+        {
+            LoadScene(sceneToLoad);
+        }
+    }
+
     //Variables
 
     [Header("General Data")]
     public int points;
     public int winPoints;
+    public int sceneToLoad;
     public int score;
     public int maxScore;
     public int health;
@@ -38,6 +48,11 @@ public class GameManager : MonoBehaviour
     public void PointsUp(int gain)
     {
         points += gain;
+    }
+
+    public void LoadScene(int sceneIndex)
+    {
+        SceneManager.LoadScene(sceneIndex);
     }
 
     [Header("Game Status")]
