@@ -1,73 +1,118 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
     [Header("Attack Parameters")]
-    [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
-    [SerializeField] private int damage;
+    [SerializeField] private int atkDmg;
+    [SerializeField] private bool playerInRange;
+    [SerializeField] bool isAttacking;
 
-    [Header("Collider Parameters")]
-    [SerializeField] private float colliderDistance;
-    [SerializeField] private BoxCollider2D boxCollider;
 
-    [Header("Player Layer")]
-    [SerializeField] private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
+
+    [Header("Health")]
+    [SerializeField] private float startingHealth;
+    public float currentHealth;
+    private bool dead;
+
+    [Header("iFrames")]
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numberOfFlashes;
+    private SpriteRenderer spriteRend;
+
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
+    private bool invulnerable;
 
     //References
     private Animator anim;
-    private Health playerHealth;
+    private BoxCollider2D boxCollider;
+    private MeleeEnemy playerHealth;
     private EnemyPatrol enemyPatrol;
+
+    //External References
+    private GameObject sai;
 
     private void Awake()
     {
+        sai = GameObject.Find("Sai");
+        currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        cooldownTimer += Time.deltaTime;
+        if (Physics2D.OverlapArea(new Vector2(transform.position.x - .5f, boxCollider.bounds.min.y), new Vector2(transform.position.x + range, boxCollider.bounds.max.y), LayerMask.GetMask("Player")))
+        { playerInRange = true; }
+        else { playerInRange = false; }
 
-        //Attack only when player in sight?
-        if (PlayerInSight())
+        if (playerInRange && !isAttacking)
         {
-            if (cooldownTimer >= attackCooldown)
+            anim.SetTrigger("attack");
+        }
+    }
+
+    void Attack()
+    {
+        Debug.Log("attack done");
+        if (playerInRange)
+        {
+            sai.GetComponent<PlayerController>().SaiTakeDamage(atkDmg);
+        }
+    }
+
+    public void TakeDamage(float _damage)
+    {
+        if (!invulnerable) return;
+        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+
+        if (currentHealth > 0)
+        {
+            anim.SetTrigger("hurt");
+            StartCoroutine(Invunerability());
+        }
+        else
+        {
+            if (!dead)
             {
-                cooldownTimer = 0;
-                anim.SetTrigger("attack");
+                anim.SetTrigger("death");
+
+                //Deactivate all attached component classes
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+
+                dead = true;
             }
         }
-
-        if (enemyPatrol != null)
-            enemyPatrol.enabled = !PlayerInSight();
     }
 
-    private bool PlayerInSight()
+    private IEnumerator Invunerability()
     {
-        RaycastHit2D hit =
-            Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
-            0, Vector2.left, 0, playerLayer);
-
-        if (hit.collider != null)
-            playerHealth = hit.transform.GetComponent<Health>();
-
-        return hit.collider != null;
+        invulnerable = true;
+        Physics2D.IgnoreLayerCollision(10, 11, true);
+        for (int i = 0; i < numberOfFlashes; i++)
+        {
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
+        }
+        Physics2D.IgnoreLayerCollision(10, 11, false);
+        invulnerable = false;
     }
-    private void OnDrawGizmos()
+   
+    void isAttackingTrue()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        isAttacking = true;
     }
-
-    private void DamagePlayer()
+    void isAttackingFalse()
     {
-        if (PlayerInSight())
-            playerHealth.TakeDamage(damage);
+        isAttacking = false;
     }
 }

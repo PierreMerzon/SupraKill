@@ -7,6 +7,9 @@ TagManager:
   - Enemigo
   - PJ
   - Trap
+  - Bombita
+  - Ground
+  - PickUp
   layers:
   - Default
   - TransparentFX
